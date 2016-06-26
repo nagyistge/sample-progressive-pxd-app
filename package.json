@@ -40,7 +40,7 @@
     "vulcanize": "vulcanize --inline-scripts --inline-css $npm_package_config_dist/index.html > $npm_package_config_dist/index.min.html",
     "copy:elements": "cp -r $npm_package_config_src/elements $npm_package_config_dist/elements",
     "copy:assets": "cp -r $npm_package_config_src/assets $npm_package_config_dist/assets",
-    "copy:fonts": "mkdir -p $npm_package_config_dist/fonts && cp -r bower_components/px-mobile-ui/fonts $npm_package_config_dist/",
+    "copy:fonts": "mkdir -p $npm_package_config_dist/type && cp -r bower_components/px-typography-design/type $npm_package_config_dist/",
     "clean": "rimraf $npm_package_config_dist",
     "open": "open http://localhost:$npm_package_config_port",
     "start": "node server.js",

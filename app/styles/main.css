@@ -1,6 +1,7 @@
 body{
-
+	margin-bottom: 0 !important;
 }
-pxm-views{
-	height: 100vh;
+
+.alert-message {
+	width: auto;
 }

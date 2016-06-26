@@ -54,30 +54,32 @@
 	<template id="app" is="dom-bind">
 
 		<style is="custom-style">
-			:root {
-				--px-alert-message: {
-					width: auto;
+		.content{
+			background-color: #fff;
+		}
+		.alert-message {
+			width: auto;
+		}
 
-				}
+		.drawer-alt-1__user {
+			--px-table-row-media-img: {
+				width: 24px;
 			}
-			.drawer-alt-1__user {
-				--px-table-row-media-img: {
-					width: 24px;
-				}
-			}
-			.drawer-alt-1__user-table {
-				position: absolute;
-				bottom: 0;
-				width: 100%;
-				--px-table-view: {
-					background-color: #323232;
-					color: #fff;
-				}
-			}
-			.drawer-alt-1 .selected {
-				background-color: #0a9ec1;
+		}
+
+		.drawer-alt-1__user-table {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			--px-table-view: {
+				background-color: #323232;
 				color: #fff;
 			}
+		}
+		.drawer-alt-1 .selected {
+			background-color: #0a9ec1;
+			color: #fff;
+		}
 
 		</style>
 
@@ -95,7 +97,7 @@
 
 			<!-- TODO: Drawer -->
 			<px-drawer fixed overlay class="drawer-alt-1">
-				<div class="brand-spacer flex flex--center flex--middle">
+				<div class="brand-spacer u-p-- flex flex--center flex--middle">
 					<px-brand wordmark size="135"></px-brand>
 				</div>
 				<div>
