@@ -1,0 +1,8 @@
+{
+	"name": "sample-progressive-pxd-app",
+	"version": "0.0.1",
+	"main": "index.min.html",
+	"nativeScroll": "false",
+	"src-folder": "./dist/",
+	"output-folder": "./dist-zip/"
+}

@@ -1,0 +1,34 @@
+{
+	"_id": "sample-progressive-pxd-app",
+	"name": "sample-progressive-pxd-app",
+	"version": "0.0.1",
+	"files": [
+		"./dist/**/*.*"
+	],
+	"main": "index.min.html",
+	"description": "A mobile application using Predix Mobile.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.build.ge.com/Org/repo.git"
+	},
+	"keywords": [
+		"px",
+		"px-mobile",
+		"web-component"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"px-mobile.js": "https://github.com/PredixDev/px-mobile.js.git"
+	},
+	"devDependencies": {
+		"web-component-tester": "~3.4.0",
+		"iron-component-page": "PolymerElements/iron-component-page#~1.0.5"
+	}
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="pxm">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="px-mobile usage docs">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- Tile color for Win8-->
+	<meta name="msapplication-TileColor" content="#333333">
+
+	<!-- Add to homescreen for Chrome on Android-->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="PSK">
+	<link rel="icon" sizes="192x192" href="assets/android-icon-192x192.png">
+
+	<!-- Add to homescreen for Safari on iOS-->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="sample-progressive-pxd-app">
+	<link rel="apple-touch-icon" href="assets/apple-icon-144x144.png">
+	<meta name="msapplication-TileImage" content="assets/apple-icon-144x144.png">
+
+	<title>
+		sample-progressive-pxd-app
+	</title>
+
+	<!-- build:css css/vendor.css  -->
+	<link rel="import" href="../bower_components/font-awesome/css/font-awesome.css" />
+	<!-- endbuild -->
+
+	<!-- build:css css/main.css  -->
+	<link rel="stylesheet" href="styles/main.css" />
+	<!-- endbuild -->
+
+	<!-- build:js js/vendor.js  -->
+	<script src="../bower_components/es6-shim/es6-shim.js"></script>
+	<script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="../bower_components/fetch/fetch.js"></script>
+	<script src="../bower_components/fastclick/lib/fastclick.js"></script>
+	<!-- endbuild -->
+
+	<link rel="import" href="../bower_components/polymer/polymer.html" />
+	<link rel="import" href="../bower_components/px-mobile-ui/dist/px-mobile.min.html" />
+
+	<link rel="import" href="elements/elements.html" />
+
+</head>
+
+<body unresolved class="background-color-alt">
+
+
+
+	<pxm-app id="myApp">
+		<pxm-db id="myDb" base-url="/pmapi/cdb/pm">
+			<pxm-collection id="issueCollection"></px-collection>
+		</pxm-db>
+
+		<pxm-navbar id="myNavbar" title="sample-progressive-pxd-app" theme="dark" sidebar-container="mySidebar" view-container="myViews" fixed></pxm-navbar>
+		<pxm-sidebar id="mySidebar" view-container="myViews"></pxm-sidebar>
+
+		<pxm-views id="myViews" class="background-color-light">
+
+			<!-- TODO: View 1 -->
+			<pxm-view id="view1" title="Dashboard" main>
+				<div class="content">
+					<ul id="list1" class="table-view"></ul>
+				</div>
+			</pxm-view>
+
+			<!-- TODO: View 2 -->
+			<pxm-view id="view2" title="View 2">
+				<pxm-navbar>
+					<button onclick="myViews.next()">Next</button>
+				</pxm-navbar>
+				<section class="content">
+					<ul id="list2" class="table-view"></ul>
+				</section>
+			</pxm-view>
+
+			<!-- TODO: View 3 -->
+			<pxm-view id="view3" title="Cards">
+				<pxm-navbar>
+					<button onclick="myViews.next()">Next</button>
+				</pxm-navbar>
+				<div class="cards content">
+
+					<pxm-card title="Basic Card">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</pxm-card>
+
+					<pxm-card title="Image Card" type="image">
+						<img class="img-responsive" src="http://lorempixel.com/800/600/abstract/" alt="">
+					</pxm-card>
+
+					<pxm-facebook-card title="Facebook Text Card">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</pxm-facebook-card>
+
+					<pxm-facebook-card title="Facebook Media Card" type="image">
+						<img class="img-responsive" src="http://lorempixel.com/800/600/abstract/9" alt="">
+					</pxm-facebook-card>
+				</div>
+			</pxm-view>
+
+		</pxm-views>
+	</pxm-app>
+
+	<!-- build:js js/main.js  -->
+	<script src="scripts/main.js"></script>
+	<!-- endbuild -->
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35728/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>

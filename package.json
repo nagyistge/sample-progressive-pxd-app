@@ -1,0 +1,73 @@
+{
+  "name": "sample-progressive-pxd-app",
+  "version": "0.0.1",
+  "description": "A mininal app for Predix Mobile",
+  "main": "server.js",
+  "author": "",
+  "repository": "",
+  "license": "",
+  "config": {
+    "dist": "./dist",
+    "src": "./app",
+    "port": 9001,
+    "livereload": 35728,
+    "dirs": [
+      "./app",
+      "."
+    ],
+    "routes": [],
+    "proxy": {
+      "forward": {
+        "/pm": "/default",
+        "/pmapi/cdb/pm": "http://localhost:4999"
+      }
+    }
+  },
+  "files": [
+    "./dist/**/*.*"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "scripts": {
+    "postinstall": "bower update",
+    "build": "npm run clean && mkdir -p dist && npm run copy:elements && npm run copy:assets && npm run copy:fonts && npm run build:html && npm run vulcanize",
+    "build:html": "usemin $npm_package_config_src/index.html -d $npm_package_config_dist -o $npm_package_config_dist/index.html --htmlmin true --rmlr true",
+    "build:css": "postcss --use autoprefixer app/styles/*.css -d dist/",
+    "vulcanize": "vulcanize --inline-scripts --inline-css $npm_package_config_dist/index.html > $npm_package_config_dist/index.min.html",
+    "copy:elements": "cp -r $npm_package_config_src/elements $npm_package_config_dist/elements",
+    "copy:assets": "cp -r $npm_package_config_src/assets $npm_package_config_dist/assets",
+    "copy:fonts": "mkdir -p $npm_package_config_dist/fonts && cp -r bower_components/px-mobile-ui/fonts $npm_package_config_dist/",
+    "clean": "rimraf $npm_package_config_dist",
+    "open": "open http://localhost:$npm_package_config_port",
+    "start": "node server.js",
+    "poststart": "npm run open",
+    "prepublish": "npm run build",
+    "publish": "pm publish"
+  },
+  "keywords": [
+    "predix-mobile"
+  ],
+  "dependencies": {
+    "express": "^4.13.3",
+    "fs-extra": "^0.23.1",
+    "glob": "^5.0.14",
+    "json-proxy": "^0.9.1",
+    "log4js": "^0.6.26",
+    "serve-static": "^1.10.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.0",
+    "cssmin": "^0.4.3",
+    "express": "^4.13.3",
+    "livereload": "^0.4.0",
+    "postcss-cli": "^2.3.2",
+    "rimraf": "^2.4.3",
+    "serve-static": "^1.10.0",
+    "usemin-cli": "0.0.7",
+    "vulcanize": "^1.14.0"
+  }
+}
