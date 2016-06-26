@@ -1,34 +1,54 @@
 {
-	"_id": "sample-progressive-pxd-app",
-	"name": "sample-progressive-pxd-app",
-	"version": "0.0.1",
-	"files": [
-		"./dist/**/*.*"
-	],
-	"main": "index.min.html",
-	"description": "A mobile application using Predix Mobile.",
-	"repository": {
-		"type": "git",
-		"url": "https://github.build.ge.com/Org/repo.git"
-	},
-	"keywords": [
-		"px",
-		"px-mobile",
-		"web-component"
-	],
-	"license": "MIT",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
-	"dependencies": {
-		"px-mobile.js": "https://github.com/PredixDev/px-mobile.js.git"
-	},
-	"devDependencies": {
-		"web-component-tester": "~3.4.0",
-		"iron-component-page": "PolymerElements/iron-component-page#~1.0.5"
-	}
+  "_id": "sample-progressive-pxd-app",
+  "name": "sample-progressive-pxd-app",
+  "version": "0.0.1",
+  "files": [
+    "./dist/**/*.*"
+  ],
+  "main": "index.min.html",
+  "description": "A mobile application using Predix Mobile.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.build.ge.com/Org/repo.git"
+  },
+  "keywords": [
+    "px",
+    "px-mobile",
+    "web-component"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "px-mobile.js": "https://github.com/PredixDev/px-mobile.js.git",
+    "px-table-view": "^0.0.5",
+    "px-layout": "^0.0.2",
+    "fastclick": "^1.0.6",
+    "es6-shim": "^0.35.1",
+    "webcomponentsjs": "^0.7.22",
+    "iron-pages": "^1.0.7",
+    "px-page": "*",
+    "px-simple-horizontal-bar-chart": "^0.5.1",
+    "px-alert-message": "^0.6.0",
+    "px-card": "^0.4.3"
+  },
+  "devDependencies": {
+    "web-component-tester": "~3.4.0",
+    "iron-component-page": "PolymerElements/iron-component-page#~1.0.5"
+  },
+  "resolutions": {
+    "polymer": "~v1.5.0",
+    "polymer-font-awesome": "master",
+    "es6-shim": "^0.35.1",
+    "px-theme": "0.8.0",
+    "web-component-tester": "~3.3.17",
+    "async": "^1.5.0",
+    "es6-promise": "3.2.2",
+    "px": "~1.4.2"
+  }
 }

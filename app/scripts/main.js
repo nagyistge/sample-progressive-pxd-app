@@ -1,44 +1,234 @@
-// TODO: Lets wait for components to be ready
-document.addEventListener('WebComponentsReady', function() {
-	if ('addEventListener' in document) {
-		document.addEventListener('DOMContentLoaded', function() {
-			FastClick.attach(document.body);
-		}, false);
+window.EXAMPLES = [{
+	icon: 'fa:fa-check',
+	color: 'green',
+	href: 'template-drawer-layout.html',
+	title: 'Drawer Layout'
+}, {
+	icon: 'fa:fa-check',
+	color: 'green',
+	href: 'template-drawer-header-layout.html',
+	title: 'Drawer Header Layout'
+}, {
+	icon: 'fa:fa-check',
+	color: 'green',
+	href: 'template-header-layout.html',
+	title: 'Header Layout'
+}, {
+	href: 'template-basic.html',
+	title: 'Basic Layout'
+}, {
+	icon: 'fa:fa-check',
+	color: 'green',
+	href: 'template-vanilla-seed-layout.html',
+	title: 'Vanilla Seed Layout'
+}, {
+	href: 'template-dashboard.html',
+	title: 'Dashboard Seed Layout'
+}, {
+	href: 'template-splitview.html',
+	title: 'Splitview Layout'
+}, {
+	href: 'template-login.html',
+	title: 'Login'
+}, {
+	href: 'template-cards.html',
+	title: 'Grid to List'
+}, {
+	href: 'template-tabs-to-columns.html',
+	title: 'Tabs to Columns'
+}, {
+	href: 'template-tabs-to-sidebar.html',
+	title: 'Tabs to Sidebar'
+}, {
+	href: 'template-content-mini-sidebar.html',
+	title: 'Context Mini Sidebar'
+}, {
+	href: 'template-content-sidebar.html',
+	title: 'Context Static Sidebar'
+}, {
+	href: 'template-google-example.html',
+	title: 'Google Example'
+}, {
+	href: 'template-detail.html',
+	title: 'Full Detail'
+}, {
+	href: 'template-detail-asset.html',
+	title: 'Asset Detail'
+}, {
+	href: 'template-detail-turbine.html',
+	title: 'Turbine Detail'
+}];
+
+var demo = window.demo = {};
+var user = {
+	username: 'jonnie.spratley',
+	name: 'Jonnie Spratley',
+	email: 'jonnie.spratley@ge.com',
+	image: 'https://goo.gl/WKu72K'
+};
+demo.user = user;
+var navItems = [{
+	label: 'Dashboard',
+	icon: 'fa:fa-tachometer'
+}, {
+	label: 'Blank View',
+	icon: 'fa:fa-square'
+}, {
+	label: 'Details',
+	icon: 'fa:fa-square'
+}, {
+	label: 'Alerts',
+	icon: 'fa:fa-exclamation-triangle'
+}, {
+	label: 'Cases',
+	icon: 'fa:fa-briefcase'
+}, {
+	label: 'Analysis',
+	icon: 'fa:fa-bar-chart'
+}];
+demo.navItems = navItems;
+demo.alerts = [{
+		title: 'Normal Issue',
+		body: 'Text body value',
+		type: 'normal',
+		icon: 'fa:fa-exclamation-triangle'
+	}, {
+		title: 'Fixed Issue',
+		body: 'Text body value',
+		icon: 'fa:fa-exclamation-triangle'
+	}, {
+		title: 'Fixed Issue',
+		body: 'Text body value',
+		icon: 'fa:fa-exclamation-triangle'
+	}, {
+		title: 'Fixed Issue',
+		body: 'Text body value',
+		icon: 'fa:fa-exclamation-triangle'
+	}, {
+		title: 'Fixed Issue',
+		body: 'Text body value',
+		icon: 'fa:fa-exclamation-triangle'
+	}, {
+		title: 'Fixed Issue',
+		body: 'Text body value',
+		icon: 'fa:fa-exclamation-triangle'
 	}
 
-	// TODO: Create database instance that connect to the container
-	var db = new pxMobile.DB('someDatabase', {
-		baseUrl: '/pmapi/cdb/pm'
-	});
+];
+demo.cases = [{
+	title: 'Case 1',
+	icon: 'fa:fa-exclamation-triangle',
+	body: 'A new case'
+}, {
+	title: 'Case 1',
+	icon: 'fa:fa-exclamation-triangle',
+	body: 'A new case'
+}];
 
-	// TODO: Lets get issues from the database
-	function fetchIssues() {
-		db.allDocs({
-			limit: 25,
-			include_docs: true
-		}).then(function(resp) {
-			console.log('Got response', resp);
-			document.getElementById('testElement').issues = resp.data.rows;
+demo.reports = [{
+	title: 'Symptoms',
+	body: 'There was a sustained (non-correcting) step change, Lorem ipsum dolor sit amet, consectetur adipisicing eli.'
+}, {
+	title: 'Symptoms',
+	body: 'There was a sustained (non-correcting) step change, Lorem ipsum dolor sit amet, consectetur adipisicing eli.'
+}, {
+	title: 'Symptoms',
+	body: 'There was a sustained (non-correcting) step change, Lorem ipsum dolor sit amet, consectetur adipisicing eli.'
+}];
+
+demo.documents = [{
+	name: 'Time Series Inlet Flow',
+	type: 'pdf',
+	size: '714 KB',
+	created: '10/01/15 1:32 PM'
+}, {
+	name: 'Time Series Flow',
+	type: 'pdf',
+	size: '2 MB',
+	created: '10/06/15 6:16 PM'
+}, {
+	name: 'Gas Turbine Map',
+	type: 'pdf',
+	size: '1.4 MB',
+	created: '03/19/16 2:16 PM'
+}];
+
+function createDemoCards(count) {
+	var i = 0,
+		lorem =
+		'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliq',
+		_out = [];
+	for (; i < count; i++) {
+		_out.push({
+			title: 'Card ' + i,
+			body: lorem
 		});
 	}
-	fetchIssues();
+	return _out;
+}
 
-	// TODO: Example list items
-	function createDemoList(el, count) {
-		var a, li, list;
-		list = document.getElementById(el);
-		for (var i = 0; i < count; i++) {
-			li = document.createElement('li');
-			a = document.createElement('a');
-			a.attr('onclick', 'myViews.next()')
-			a.html('Item ' + i);
-			li.appendChild(a);
-			list.appendChild(li);
-		}
+demo.createDemoCards = createDemoCards;
+
+
+function createDemoItems(count) {
+	var i = 0,
+		lorem =
+		'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+		_out = [];
+	for (; i < count; i++) {
+		_out.push({
+			id: 'item-' + i,
+			title: 'Item ' + i,
+			body: lorem
+		});
 	}
+	return _out;
+}
+demo.createDemoItems = createDemoItems;
 
-	createDemoList('list1', 150);
-	createDemoList('list2', 250);
+
+function createToc(id) {
+	var toc = document.getElementById(id);
+	var headings = document.querySelectorAll('h2'),
+		heading, link, li;
+	for (var i = 0; i < headings.length; i++) {
+		heading = headings[i].textContent;
+		headings[i].id = headings[i].textContent.replace(/\W/g, '-');
+		li = document.createElement('li');
+		link = document.createElement('a');
+		link.href = '#' + headings[i].id;
+		link.textContent = heading;
+		li.appendChild(link);
+		toc.appendChild(li);
+		console.log('Adding id to heading', headings[i]);
+	}
+}
+var app;
+
+// TODO: Lets wait for components to be ready
+document.addEventListener('WebComponentsReady', function() {
+
+	app = document.getElementById('app');
+	app.layout = document.querySelector('px-drawer-layout');
+	app.selected = 'Dashboard';
+
+	app.navItems = demo.navItems;
+	app.cases = demo.cases;
+	app.analytics = demo.analytics;
+	app.alerts = demo.alerts;
+	app.user = demo.user;
+	app.reports = demo.reports;
+	app.documents = demo.documents;
+
+	app.toggleDrawer = function() {
+		document.getElementById('layout').drawer.toggle();
+	};
+	app.openActions = function(e) {
+		console.log('openActions', e);
+		document.getElementById('actionsheet1').toggle();
+	};
+
+	app.cards = demo.createDemoCards(25);
 
 	console.warn('WebComponentsReady ready');
 });
